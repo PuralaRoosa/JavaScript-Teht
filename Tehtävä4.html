@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerot</title>
+    <style>
+    p {
+    font-size: 1.5em;
+    }
+
+    form {
+    display: flex;
+    flex-direction: column;
+    }
+
+    input[type=text], input[type=submit]{
+    text-align: center;
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    </style>
+</head>
+<body>
+    <p>Kerro Ikäsi</p>
+        <form id="ageForm">
+            <input type="text" name="age">
+            <input type="submit" value="Lähetä">
+        </form>
+
+    <script>
+        document.getElementById("ageForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // estetään lomakkeen lähettäminen
+            
+            // otetaan ikä
+            const age = parseInt(document.getElementsByName("age")[0].value);
+
+            // voidaanko iän mukaan ajaa pyörällä, mopolla ja autolla
+            let voiko = "";
+
+            if (age < 16) {
+                voiko = "Voit ajaa pyörällä.";
+            } else if (age < 18) {
+                voiko = "Voit ajaa pyörällä ja mopolla.";
+            } else {
+                voiko = "Voit ajaa pyörää, mopoa ja autoa.";
+            }
+
+            // näytetään käyttäjälle voiko ajaa
+            alert(voiko);
+        });
+        </script>
+</body>
+</html>

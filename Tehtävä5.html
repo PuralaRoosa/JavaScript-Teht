@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Switcher</title>
+    <style>
+        * {
+            text-align: center;
+        }
+        button {
+            border-radius: 20px;
+            padding: 10px 20px ;
+            background: transparent;
+            border: solid 3px #7f80b3;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        button:hover {
+            background-color: #7f80b3;
+            color: white;
+        }
+        div {
+            font-size: 2.5em;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="languageOutput">Hei maailma</div>
+    <button onclick="changeLanguage('Suomi')">Suomi</button>
+    <button onclick="changeLanguage('Saksa')">Saksa</button>
+    <button onclick="changeLanguage('Englanti')">Englanti</button>
+    <button onclick="changeLanguage('Ruotsi')">Ruotsi</button>
+
+    <script>
+        function changeLanguage(language) {
+            const languageOutput = document.getElementById("languageOutput");
+
+            switch (language) {
+                case 'Suomi':
+                    languageOutput.textContent = "Hei maailma";
+                    break;
+                case 'Saksa':
+                    languageOutput.textContent = "Hallo Welt";
+                    break;
+                case 'Englanti':
+                    languageOutput.textContent = "Hello world";
+                    break;
+                case 'Ruotsi':
+                    languageOutput.textContent = "Hej världen";
+                    break;
+                default:
+                    languageOutput.textContent = "Hei maailma";
+            }
+        }
+    </script>
+</body>
+</html>

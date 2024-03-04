@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerot</title>
+    <style>
+    p {
+    font-size: 1.5em;
+    }
+
+    form {
+    display: flex;
+    flex-direction: column;
+    }
+
+    input[type=text], input[type=submit]{
+    text-align: center;
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    </style>
+</head>
+<body>
+    <p>Anna numero</p>
+        <form id="numForm">
+            <input type="text" name="num1">
+            <input type="submit" value="Lähetä">
+        </form>
+
+    <script>
+        document.getElementById("numForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Estetään lomakkeen lähettäminen
+            const numbers = []; // Taulukko, johon numerot lisätään
+
+            // otetaan lomakkeen kenttien arvot ja lisätään ne taulukkoon
+            const num1 = parseFloat(document.getElementsByName("num1")[0].value);
+
+            if (!isNaN(num1)) numbers.push(num1);
+
+            // Onko numero Pariton vai Parillinen
+            const parityResults = numbers.map(number => {
+                return `${number} on ${number % 2 === 0 ? 'Parillinen' : 'Pariton'}`;
+            });
+
+            // kerrotaan käyttäjälle onko numero pariton vai parillinen
+            alert(parityResults.join("\n"));
+        });
+    </script>
+</body>
+</html>

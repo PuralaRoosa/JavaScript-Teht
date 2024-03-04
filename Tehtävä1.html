@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerot</title>
+    <style>
+    p {
+    font-size: 1.5em;
+    }
+
+    form {
+    display: flex;
+    flex-direction: column;
+    }
+
+    input[type=text], input[type=submit]{
+    text-align: center;
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    </style>
+</head>
+<body>
+    <p>Anna numerot</p>
+        <form id="numForm">
+            <input type="text" name="num1">
+            <input type="text" name="num2">
+            <input type="text" name="num3">
+            <input type="submit" value="Lähetä">
+        </form>
+
+    <script>
+        document.getElementById("numForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Estetään lomakkeen lähettäminen
+            const numbers = []; // Taulukko, johon numerot lisätään
+
+            // otetaan lomakkeen kenttien arvot ja lisätään ne taulukkoon
+            const num1 = parseInt(document.getElementsByName("num1")[0].value);
+            const num2 = parseInt(document.getElementsByName("num2")[0].value);
+            const num3 = parseInt(document.getElementsByName("num3")[0].value);
+
+            if (!isNaN(num1)) numbers.push(num1);
+            if (!isNaN(num2)) numbers.push(num2);
+            if (!isNaN(num3)) numbers.push(num3);
+
+            // Numerot jerjestetään
+            numbers.sort(function(a, b) {
+                return a - b;
+            });
+
+            // Näytetään järjestetyt numerot
+            alert("Järjestetyt numero: " + numbers.join(", "));
+        });
+    </script>
+</body>
+</html>
